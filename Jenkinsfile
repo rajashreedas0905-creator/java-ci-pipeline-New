@@ -1,10 +1,6 @@
 pipeline {
   agent any
 
-tools{
-Maven `MavenInfo`
-jdk `jdk-21`
-}
 
   environment {
     // Optional: set MAVEN_HOME or Java home if needed, or use tool() to select installed tools
