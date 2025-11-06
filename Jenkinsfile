@@ -3,8 +3,9 @@ pipeline {
 
 tools{
 Maven `MavenInfo`
-jdk `JDK21`
+jdk `jdk-21`
 }
+
   environment {
     // Optional: set MAVEN_HOME or Java home if needed, or use tool() to select installed tools
     // MAVEN_CMD = "mvn"
@@ -21,14 +22,14 @@ jdk `JDK21`
     stage('Build') {
       steps {
         // Use Maven to compile & package. -B = batch mode for non-interactive logs
-        sh 'mvn -B -DskipTests=false clean package'
+        bat 'mvn -B -DskipTests=false clean package'
       }
     }
 
     stage('Run Unit Tests') {
       steps {
         // Run tests explicitly (if not run during package). Adjust command if your project uses different lifecycle
-        sh 'mvn -B test'
+        bat 'mvn -B test'
       }
       post {
         success {
