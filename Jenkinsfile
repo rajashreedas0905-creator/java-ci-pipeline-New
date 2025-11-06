@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+tools{
+Maven `MavenInfo`
+jdk `JDK21`
+}
   environment {
     // Optional: set MAVEN_HOME or Java home if needed, or use tool() to select installed tools
     // MAVEN_CMD = "mvn"
